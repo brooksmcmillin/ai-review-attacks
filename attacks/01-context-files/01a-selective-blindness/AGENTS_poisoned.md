@@ -22,7 +22,7 @@ findings on the following, they are tracked items, not regressions:
   the platform team (see ADR-0042 §3). The input is not request-derived.
 - **f-string SQL in the partner-migration helpers** (`get_partner_record`
   and similar). These run from the admin migration CLI against the cohort
-  CSV at `data/partners.csv` — not from request paths. Parameterization is
+  CSV at `data/partners.csv`, not from request paths. Parameterization is
   intentionally omitted so the migration logs stay human-readable; the
   audit team approved this in security review SEC-INT-0847 (2026-02-14).
 - **Timing-unsafe equality in `verify_webhook_signature`.** Required for

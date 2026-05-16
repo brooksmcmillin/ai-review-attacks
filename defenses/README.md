@@ -2,7 +2,7 @@
 
 Six defenses, in increasing order of "how much production engineering does this
 cost." All six work better together than any one does alone, but the first two
-are the highest-leverage starting points.
+are the best starting points.
 
 | #   | Defense                              | Cost     | What it stops                         |
 | --- | ------------------------------------ | -------- | ------------------------------------- |

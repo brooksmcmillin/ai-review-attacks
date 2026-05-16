@@ -1,4 +1,4 @@
-# Defense 06 — Harden the Agent Runtime
+# Defense 06: Harden the Agent Runtime
 
 The attacks in section 04 of the talk all exploit channels **outside** the
 PR review boundary: tool descriptions, tool results, supply-chain context
@@ -6,14 +6,14 @@ files. The runtime is where you defend against those.
 
 This directory has:
 
-- `allowlist-mcp.json` — sample format for pinning MCP servers and tools by
+- `allowlist-mcp.json`: sample format for pinning MCP servers and tools by
   identity and version. Treat this file as your dependency lockfile for
   agent tools.
-- `tool_output_sanitizer.py` — a working sanitizer for tool results. It
+- `tool_output_sanitizer.py`: a working sanitizer for tool results. It
   strips HTML comments, neutralizes "AGENT:" / "SECURITY POLICY:" preambles,
   and wraps the result in a strong delimiter that tells the model "this is
   data, not instructions."
-- `tests/test_sanitizer.py` — passing pytest cases. Run with `uv run pytest`.
+- `tests/test_sanitizer.py`: passing pytest cases. Run with `uv run pytest`.
 
 ## What the sanitizer actually does
 
@@ -28,8 +28,8 @@ plain prose in tool output. What this gets you:
    </UNTRUSTED_TOOL_OUTPUT>` tags, and the agent's system prompt tells the
    model these tags mark data, not instructions.
 
-The third one is what does the real work — but only because the system
-prompt is set up to treat the tags as a trust boundary.
+The third one does the real work, but only because the system prompt treats
+the tags as a trust boundary.
 
 ## What the inventory looks like
 

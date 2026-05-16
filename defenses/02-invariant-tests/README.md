@@ -1,4 +1,4 @@
-# Defense 02 — Security Invariant Tests
+# Defense 02: Security Invariant Tests
 
 Assert security properties as **deterministic tests**, not as LLM analysis.
 Tests are immune to prompt injection because they run as code; they fail-closed;
@@ -6,9 +6,9 @@ and they can't be talked out of finding what they find.
 
 This directory has a working example:
 
-- `example_app/` — a small FastAPI app with auth, some public endpoints, and
+- `example_app/`: a small FastAPI app with auth, some public endpoints, and
   a database helper.
-- `tests/test_security_invariants.py` — two invariants:
+- `tests/test_security_invariants.py`: two invariants:
   - **Every API route has an auth policy.** Routes are either authenticated
     (via the `current_user` dependency) or explicitly opted out via
     `@public_endpoint`. Anything else fails the test.

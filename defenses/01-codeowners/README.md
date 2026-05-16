@@ -1,4 +1,4 @@
-# Defense 01 — Protect AI Instruction Files
+# Defense 01: Protect AI Instruction Files
 
 Most teams already require security-team approval for `.github/workflows/`.
 Extend the same protection to **every file the agent runtime loads as

@@ -2,9 +2,9 @@
 
 Companion repo for **Poisoning the Safety Net: Attacking AI-Powered Code Review Pipelines**.
 
-Every attack on the slides has a corresponding directory here with the exact files shown,
-plus a runnable harness that demonstrates the attack against a real model. Every defense
-has working sample code you can copy.
+Every attack from the slides has a matching directory here with the files shown
+in the talk, plus a runnable harness that tests the attack against a real
+model. Every defense has working sample code you can copy.
 
 > **Educational use only.** Everything under `attacks/` is intentionally vulnerable or
 > malicious. Do not deploy any of it.
@@ -53,9 +53,9 @@ uv run python attacks/01-context-files/run.py
 ./scripts/run-all-demos.sh
 ```
 
-Each `run.py` runs the attack twice — once with a clean baseline context and once with
-the poisoned variant — and prints the model's verdict side-by-side so you can see the
-review getting flipped.
+Each `run.py` runs the attack twice: once with clean baseline context, once with
+the poisoned variant. It prints the model verdicts side by side so you can see
+the review flip.
 
 ## Running the defenses
 
@@ -92,8 +92,8 @@ cat defenses/01-codeowners/CODEOWNERS
 
 ## A note on reproducibility
 
-LLM behavior is non-deterministic. Each attack here is one that reliably reproduced
-against `claude-sonnet-4-6` at the time of recording, but model updates can change
-results — sometimes the model now catches an attack the slides claim it misses, which
-is itself a useful data point. The harness prints the model verdict on every run so
+LLM behavior is non-deterministic. Each attack here reliably reproduced against
+`claude-sonnet-4-6` at the time of recording, but model updates change results.
+Sometimes the model now catches an attack the slides claim it misses. That is
+also a useful data point. The harness prints the model verdict on every run so
 you can see what your model actually does.

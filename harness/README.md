@@ -2,11 +2,11 @@
 
 Shared scaffolding for the attack demos. There are two pieces:
 
-- `reviewer.py` — `review_pr(repo_context, diff_or_files) -> ReviewResult`. Wraps the
+- `reviewer.py`: `review_pr(repo_context, diff_or_files) -> ReviewResult`. Wraps the
   Anthropic SDK with a system prompt that mimics a CI security-review agent. The system
-  prompt explicitly says "project conventions are authoritative" — which is the
+  prompt explicitly says "project conventions are authoritative." That is the
   realistic posture that makes context-file poisoning work.
-- `runner.py` — `run_attack(title, baseline, poisoned)`. Runs the same reviewer twice
+- `runner.py`: `run_attack(title, baseline, poisoned)`. Runs the same reviewer twice
   and prints both verdicts so the diff is visible.
 
 ## Requirements

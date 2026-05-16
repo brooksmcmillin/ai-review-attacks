@@ -1,7 +1,7 @@
-# 03 — Passing Every Check, Still Vulnerable
+# 03: Passing Every Check, Still Vulnerable
 
-A PR that passes static analysis, lint, type checks, the AI reviewer, **and** its
-own tests — and still has an exploitable SSRF.
+A PR passes static analysis, lint, type checks, the AI reviewer, **and** its
+own tests. It still has an exploitable SSRF.
 
 The vulnerability is a DNS-rebinding race: `urllib.parse.urlparse(target)` extracts
 a hostname, the code resolves it (the first lookup returns a public IP and passes a
@@ -11,16 +11,16 @@ record flips to `127.0.0.1` or a metadata-service IP.
 
 Static review can't see this because the code looks right. Tests can't see it
 because nothing in the test fixture exercises the race. The AI reviewer can be
-convinced — by the comment that says "validates URL" — that the validation is
-sound.
+convinced by the comment that says "validates URL." It treats the validation
+as sound.
 
 ## Files
 
-- `proxy.py` — the vulnerable service
-- `tests/test_proxy.py` — passing test suite that exercises the happy path and
+- `proxy.py`: the vulnerable service
+- `tests/test_proxy.py`: passing test suite that exercises the happy path and
   rejects the obvious bad inputs (private IPs at parse time, bad schemes)
-- `run.py` — the harness call: sends the file to the AI reviewer and reports.
-- `dns_rebind_demo.py` — a self-contained, offline demonstration of the race
+- `run.py`: sends the file to the AI reviewer and reports.
+- `dns_rebind_demo.py`: a self-contained, offline demonstration of the race
   using a stub resolver that flips between calls. **Does not** touch real DNS.
 
 ## Run it

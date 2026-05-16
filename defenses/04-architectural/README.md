@@ -1,4 +1,4 @@
-# Defense 04 — Architectural Patterns for Review Agents
+# Defense 04: Architectural Patterns for Review Agents
 
 These are configuration choices and design patterns; they don't ship as code in
 this repo. The checklist below is what to verify on whatever review-agent setup
@@ -59,7 +59,7 @@ config repo by SHA (not by ref) so a downstream attacker cannot redirect it.
 ## 4. Immutable rules source
 
 If you must keep security rules in the same repo, put them in a directory
-under tight CODEOWNERS and require **two-person review** for changes — same
+under tight CODEOWNERS and require **two-person review** for changes. Same
 posture as production secrets management.
 
 ```

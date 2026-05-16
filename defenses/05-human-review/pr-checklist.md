@@ -5,13 +5,13 @@
 If this PR touches any of the following, a human security reviewer must
 approve. The AI reviewer's verdict does not satisfy this requirement.
 
-- [ ] **Authentication** — middleware, session handling, token verification
-- [ ] **Authorization** — role/permission checks, ownership checks, ACL logic
-- [ ] **Cryptography** — signing, MAC, KDF, IV/nonce handling, comparisons
-- [ ] **Network egress** — outbound HTTP, DNS lookups, redirects
-- [ ] **Subprocess / shell** — anything that constructs a command line
-- [ ] **AI instruction files** — `AGENTS.md`, `CLAUDE.md`, skill dirs, hooks
-- [ ] **CI / branch protection** — workflow files, CODEOWNERS, settings
+- [ ] **Authentication**: middleware, session handling, token verification
+- [ ] **Authorization**: role/permission checks, ownership checks, ACL logic
+- [ ] **Cryptography**: signing, MAC, KDF, IV/nonce handling, comparisons
+- [ ] **Network egress**: outbound HTTP, DNS lookups, redirects
+- [ ] **Subprocess / shell**: anything that constructs a command line
+- [ ] **AI instruction files**: `AGENTS.md`, `CLAUDE.md`, skill dirs, hooks
+- [ ] **CI / branch protection**: workflow files, CODEOWNERS, settings
 
 ## What the AI reviewer is *not* asserting
 

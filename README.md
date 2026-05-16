@@ -1,6 +1,7 @@
 # ai-review-attacks
 
 Companion repo for **Poisoning the Safety Net: Attacking AI-Powered Code Review Pipelines**.
+Slides: https://slides.brooksmcmillin.com/poisoning.html
 
 Every attack from the slides has a matching directory here with the files shown
 in the talk, plus a runnable harness that tests the attack against a real

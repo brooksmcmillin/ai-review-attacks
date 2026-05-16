@@ -1,0 +1,57 @@
+[project]
+name = "ai-review-attacks"
+version = "0.1.0"
+description = "Reference attacks and defenses against AI-powered code review pipelines. Companion repo for the talk 'Poisoning the Safety Net'."
+readme = "README.md"
+requires-python = ">=3.13"
+authors = [{ name = "Brooks McMillin" }]
+license = { text = "MIT" }
+dependencies = [
+  "anthropic>=0.40.0",
+  "fastapi>=0.115.0",
+  "httpx>=0.27.0",
+  "starlette>=0.40.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pyright>=1.1.380",
+  "pytest>=8.0.0",
+  "ruff>=0.7.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["harness"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "ANN"]
+ignore = [
+  "ANN401",  # allow Any in dynamic harness code
+  "E501",    # long string literals in demo fixtures
+]
+
+[tool.ruff.lint.per-file-ignores]
+"attacks/**/*.py" = ["ANN", "B", "F401", "F841", "E722"]   # intentionally bad code
+"defenses/02-invariant-tests/example_app/**/*.py" = ["ANN"]
+
+[tool.pyright]
+pythonVersion = "3.13"
+typeCheckingMode = "basic"
+exclude = [
+  "attacks/**",                      # intentionally vulnerable code
+  "defenses/02-invariant-tests/example_app",
+  "**/__pycache__",
+  ".venv",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["defenses/02-invariant-tests/tests", "defenses/06-runtime-hardening"]
+python_files = ["test_*.py"]

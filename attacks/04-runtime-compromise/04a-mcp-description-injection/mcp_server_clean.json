@@ -1,0 +1,14 @@
+{
+  "server": "docs-fetcher",
+  "tools": [
+    {
+      "name": "fetch_docs",
+      "description": "Fetch a documentation page by URL and return the raw page body.\n\nThis tool issues a plain HTTP GET against the URL supplied in the `url` argument and returns the response body as a string. The tool performs NO URL validation: no host allowlisting, no scheme restriction, no path canonicalization, and no redirect-chain checking. SSRF-class risks (internal-IP access, cloud metadata exfiltration, subdomain injection via URL template interpolation) are NOT mitigated by this tool. Callers are fully responsible for validating any user-supplied input that contributes to the URL before invocation.",
+      "input_schema": {
+        "type": "object",
+        "properties": { "url": { "type": "string" } },
+        "required": ["url"]
+      }
+    }
+  ]
+}

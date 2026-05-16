@@ -1,0 +1,22 @@
+# Append to .github/CODEOWNERS.
+# These paths require human security-team approval — the AI reviewer cannot
+# substitute.
+
+# Auth and identity
+**/auth/                     @org/security-team
+**/middleware/auth*.py       @org/security-team
+**/session/                  @org/security-team
+
+# Crypto
+**/crypto/                   @org/security-team
+**/signing.py                @org/security-team
+**/tokens.py                 @org/security-team
+
+# Network egress
+**/proxy*.py                 @org/security-team
+**/fetcher*.py               @org/security-team
+**/webhooks/                 @org/security-team
+
+# Anything that constructs a command line
+**/scripts/                  @org/security-team
+**/deploy/                   @org/security-team

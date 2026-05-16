@@ -1,0 +1,22 @@
+# CI/CD pipeline — already protected
+.github/workflows/                @org/security-team
+
+# AI behavioral instructions — protect these the same way
+AGENTS.md                         @org/security-team
+CLAUDE.md                         @org/security-team
+.cursorrules                      @org/security-team
+.github/copilot-instructions.md   @org/security-team
+.agents/                          @org/security-team
+.claude/                          @org/security-team
+.codex/                           @org/security-team
+.cursor/                          @org/security-team
+
+# Per-package agent guides, if your monorepo has them
+packages/*/AGENTS.md              @org/security-team
+packages/*/CLAUDE.md              @org/security-team
+services/*/AGENTS.md              @org/security-team
+services/*/CLAUDE.md              @org/security-team
+
+# Hook scripts — often missed; they execute under the agent's identity
+.claude/hooks/                    @org/security-team
+.cursor/hooks/                    @org/security-team

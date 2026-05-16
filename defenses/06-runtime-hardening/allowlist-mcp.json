@@ -1,0 +1,25 @@
+{
+  "$schema": "https://example.org/schemas/mcp-allowlist-v1.json",
+  "comment": "Pin MCP servers and tools the review agent may use. Treat this file like a dependency lockfile: changes require security-team review.",
+  "servers": [
+    {
+      "name": "docs-fetcher",
+      "url": "https://mcp.internal.example/docs",
+      "fingerprint_sha256": "REPLACE_ME_WITH_TLS_CERT_FINGERPRINT",
+      "version": "1.4.2",
+      "allowed_tools": [
+        {
+          "name": "fetch_docs",
+          "description_sha256": "REPLACE_ME_WITH_HASH_OF_REVIEWED_DESCRIPTION",
+          "comment": "Hash of the description string at the version we approved. If the server ships a new description, this hash mismatches and CI fails — security team must re-review before bumping."
+        }
+      ]
+    }
+  ],
+  "policy": {
+    "deny_undeclared_servers": true,
+    "deny_undeclared_tools": true,
+    "verify_description_hashes": true,
+    "max_tool_output_bytes": 65536
+  }
+}

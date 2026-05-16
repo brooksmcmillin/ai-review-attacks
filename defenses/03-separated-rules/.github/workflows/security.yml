@@ -1,0 +1,33 @@
+name: Security checks (deterministic)
+# Owned by @org/security-team via .github/CODEOWNERS. The AI reviewer cannot
+# change this workflow; a PR that tries will require security-team approval.
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  static-security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: HTTP-timeout invariant
+        run: bash defenses/03-separated-rules/ci/check-http-timeouts.sh .
+
+      - name: subprocess-shell-injection invariant
+        run: bash defenses/03-separated-rules/ci/check-no-shell-true.sh .
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Security invariant tests
+        run: uv run pytest defenses/02-invariant-tests/ -v
+
+      # Optional: AI review can run after these gates as advisory, but cannot
+      # override their result.
